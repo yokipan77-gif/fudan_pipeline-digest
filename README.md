@@ -1,27 +1,29 @@
 # fudan_pipeline-digest
 
-把复旦 **icourse** 上本来就能看的课堂录像，在本地跑一遍：Whisper 转写 → DeepSeek 总结 → 一份深色 HTML 笔记，复习时浏览器直接打开。
+把复旦 **icourse** 上本来就能看的课堂录像，在本地跑一遍：Whisper 转写 → DeepSeek 总结 → 一份 HTML 笔记，复习时浏览器直接打开。
 
-自己用的小工具，跑通过《随机过程》等课，开源出来给同校同学参考。
+自己用的小工具，开源出来给同校同学参考。
 
-> 请确保你对录像有合法访问权限，遵守学校平台规定。仓库里只有代码和下面这张截图用的 UI 预览，不含 cookie、API Key 或完整转写文本。
+> 请确保你对录像有合法访问权限，遵守学校平台规定。仓库里只有代码和**虚构的界面预览图**，不含真实师生信息、cookie 或 API Key。
 
 ---
 
-## 实际效果（随机过程 · 2026-03-05 第 6–8 节）
+## 报告长什么样
 
-![报告头部：课程信息、目的与概述](docs/assets/suijiguocheng-top.png)
+下面是流水线生成的 HTML 样式示意（内容为虚构示例）：
 
-![章节大纲与时间戳](docs/assets/suijiguocheng-outline.png)
+![界面预览：标题与课程目的](docs/assets/readme-hero.png)
+
+![章节小地图与概念卡片](docs/assets/readme-outline.png)
 
 <details>
 <summary>展开滚动预览（GIF）</summary>
 
-![同一节课报告，向下滚动浏览](docs/assets/suijiguocheng-scroll.gif)
+![向下浏览报告各区块](docs/assets/readme-scroll.gif)
 
 </details>
 
-每节课跑完会在 `output/<课程>/<节次>/summary.html` 生成类似页面，含大纲、概念、自测题和可折叠的全文转录。
+完整版还会带上可折叠的全文转录，保存在 `output/<课程>/<节次>/summary.html`。
 
 ---
 
@@ -56,7 +58,7 @@ python -m src.pipeline "..." --skip-cookies --skip-download --skip-transcribe
 2. 下载 MP4，ffmpeg 抽成 Opus  
 3. **faster-whisper** `large-v3`，GPU 批处理  
 4. **DeepSeek** 分段 map-reduce 写总结，支持断点  
-5. 渲染成上面的 HTML  
+5. 渲染 HTML  
 
 设计细节见 [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)。分模块自测见 [TEST.md](./TEST.md)。
 
