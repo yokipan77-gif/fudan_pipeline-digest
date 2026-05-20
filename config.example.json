@@ -1,0 +1,25 @@
+{
+  "_comment": "Copy to config.json and fill in secrets. Use absolute paths on Windows.",
+
+  "deepseek_api_key": "sk-...",
+  "deepseek_base_url": "https://api.deepseek.com",
+  "deepseek_summary_model": "deepseek-chat",
+  "deepseek_reasoner_model": "deepseek-reasoner",
+
+  "ffmpeg_path": "ffmpeg",
+
+  "whisper_model": "large-v3",
+  "whisper_device": "cuda",
+  "whisper_compute_type": "float16",
+  "whisper_batch_size": 16,
+  "whisper_language": "zh",
+
+  "cdp_proxy_url": "http://localhost:3456",
+  "chrome_devtools_port": 9222,
+  "chrome_user_data_dir": "",
+
+  "output_dir": "./output",
+  "cache_dir": "./cache",
+
+  "tenant_code": "222"
+}

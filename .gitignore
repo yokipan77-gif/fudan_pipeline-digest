@@ -1,0 +1,30 @@
+# Secrets & local config
+config.json
+.env
+.env.*
+
+# Runtime artifacts (never publish)
+cookies/
+output/
+cache/
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Accidental dumps
+*.mp4
+*.opus
+*.wav
+section_notes.json.partial

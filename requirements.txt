@@ -1,0 +1,4 @@
+requests>=2.32
+openai>=1.50
+faster-whisper>=1.0
+websockets>=12.0
