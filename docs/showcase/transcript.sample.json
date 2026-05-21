@@ -1,0 +1,9 @@
+{
+  "model": "large-v3",
+  "device": "cuda",
+  "duration": 5400,
+  "segments": [
+    {"start": 0.0, "end": 6.0, "text": "本节先固定符号，并给出后续一直使用的两个定义。"},
+    {"start": 6.0, "end": 18.0, "text": "之后我们会跑一个紧凑例子，并用手算核对结果。"}
+  ]
+}

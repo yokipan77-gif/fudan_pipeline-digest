@@ -1,71 +1,93 @@
 # fudan_pipeline-digest
 
-把复旦 **icourse** 上本来就能看的课堂录像，在本地跑一遍：Whisper 转写 → DeepSeek 总结 → 一份 HTML 笔记，复习时浏览器直接打开。
+**Local GPU pipeline** — authorized icourse recordings → Whisper transcription → LLM digest → HTML report.
 
-自己用的小工具，开源出来给同校同学参考。
+[![License: MIT](https://img.shields.io/badge/License-MIT-09090b?style=flat-square&labelColor=18181b&color=38bdf8)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.12+-09090b?style=flat-square&labelColor=18181b&color=38bdf8)](requirements.txt)
 
-> 请确保你对录像有合法访问权限，遵守学校平台规定。仓库里只有代码和**虚构的界面预览图**，不含真实师生信息、cookie 或 API Key。
+将已授权访问的课堂录像在本地完成转写与结构化总结。Cookie 与 API Key 仅存本机，仓库仅含代码与下方**合成预览**。
 
 ---
 
-## 报告长什么样
+## Preview
 
-下面是流水线生成的 HTML 样式示意（内容为虚构示例）：
+以下为 `render_html` 输出的合成样例，不含真实课程、师生或转写内容。
 
-![界面预览：标题与课程目的](docs/assets/readme-hero.png)
-
-![章节小地图与概念卡片](docs/assets/readme-outline.png)
+| | |
+|:---:|:---:|
+| ![Header & objective](docs/assets/readme-hero.png) | ![Outline timeline](docs/assets/readme-outline.png) |
 
 <details>
-<summary>展开滚动预览（GIF）</summary>
-
-![向下浏览报告各区块](docs/assets/readme-scroll.gif)
-
+<summary>Scroll preview (GIF)</summary>
+<img src="docs/assets/readme-scroll.gif" width="780" alt="Synthetic report scroll preview"/>
 </details>
 
-完整版还会带上可折叠的全文转录，保存在 `output/<课程>/<节次>/summary.html`。
+在线查看静态样例 → [docs/showcase/preview.html](./docs/showcase/preview.html)
 
 ---
 
-## 怎么用
+## Architecture
+
+```
+Chrome (CDP) ──► signed URL + cookies
+       │
+       ▼
+download.py ──► audio.opus          (Origin-aware fetch, ffmpeg extract)
+       │
+       ▼
+transcribe.py ──► transcript.json   (faster-whisper · GPU batched)
+       │
+       ▼
+summarize.py ──► summary.json       (DeepSeek map-reduce · checkpointed)
+       │
+       ▼
+render_html.py ──► summary.html
+```
+
+| Module | Role |
+|--------|------|
+| `auth.py` | Export session cookies via CDP |
+| `browser_signed_url.py` | Read CDN-signed `video.src` |
+| `download.py` | MP4 download + audio extraction |
+| `transcribe.py` | GPU Whisper inference |
+| `summarize.py` | Chunked LLM summarization |
+| `pipeline.py` | CLI orchestration |
+
+→ [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)
+
+---
+
+## Setup
 
 ```bash
 git clone https://github.com/yokipan77-gif/fudan_pipeline-digest.git
 cd fudan_pipeline-digest
 pip install -r requirements.txt
-cp config.example.json config.json   # 填 deepseek_api_key、ffmpeg_path
+cp config.example.json config.json
 ```
 
-跑之前：连校园 VPN，**关掉 Clash 系统代理**，Chrome 登录 icourse 并开远程调试（9222）。
+**Prerequisites:** Python 3.12+ · ffmpeg 8+ · NVIDIA GPU (recommended) · Chrome remote debugging (9222) · campus VPN · system proxy off
 
 ```bash
-python -m src.pipeline "https://icourse.fudan.edu.cn/livingroom?course_id=...&sub_id=..."
+python -m src.pipeline "https://icourse.fudan.edu.cn/livingroom?course_id=COURSE_ID&sub_id=SUB_ID"
 ```
 
-中途断了可以续跑，例如只重跑总结：
+Resume after interruption:
 
 ```bash
 python -m src.pipeline "..." --skip-cookies --skip-download --skip-transcribe
 ```
 
-更多命令和排错 → [USAGE.md](./USAGE.md)
+→ [USAGE.md](./USAGE.md) · [TEST.md](./TEST.md)
 
 ---
 
-## 大致流程
+## Privacy & compliance
 
-1. 从 Chrome（CDP）拿带签名的视频地址和 cookie  
-2. 下载 MP4，ffmpeg 抽成 Opus  
-3. **faster-whisper** `large-v3`，GPU 批处理  
-4. **DeepSeek** 分段 map-reduce 写总结，支持断点  
-5. 渲染 HTML  
-
-设计细节见 [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)。分模块自测见 [TEST.md](./TEST.md)。
-
-需要 Python 3.12+、ffmpeg 8+、NVIDIA GPU（推荐）、DeepSeek 或兼容 API。
+Use only on recordings you are authorized to access. Do not commit `config.json`, `cookies/`, `output/`, or `cache/`.
 
 ---
 
-## 许可证
+## License
 
 [MIT](./LICENSE)

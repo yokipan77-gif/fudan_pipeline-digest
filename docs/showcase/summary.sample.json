@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "course_title": "示例课程",
+    "sub_title": "第 3 讲 · 界面样例",
+    "course_code": "DEMO-101",
+    "duration": "5400"
+  },
+  "final": {
+    "core_purpose": "建立核心定义，并通过一个完整小例子验证理解是否到位。",
+    "overall_summary": "本讲先明确范围与前置知识，再给出两个形式化定义，随后用玩具模型做一遍手算演示，最后以结构化小结收束。",
+    "chapter_outline": [
+      {"ts": "00:00", "title": "范围与前置", "abstract": "本节议程、符号约定、需要提前复习的内容"},
+      {"ts": "14:20", "title": "核心定义", "abstract": "在最小假设下引入两个形式化概念"},
+      {"ts": "41:05", "title": "手算演示", "abstract": "将定义逐步应用到两状态玩具模型"},
+      {"ts": "1:08:30", "title": "小结与延伸", "abstract": "要点表格与建议阅读"}
+    ],
+    "key_concepts": [
+      {"term": "状态", "explanation": "模型中的最小单元"},
+      {"term": "转移", "explanation": "状态如何随步骤变化"},
+      {"term": "不变量", "explanation": "每步保持不变的量"}
+    ],
+    "key_examples": [
+      "两状态玩具模型：显式写出转移表",
+      "检验：各路径概率之和为 1"
+    ],
+    "self_check_questions": [
+      "用自己的话复述两个核心定义。",
+      "若去掉某个假设，手算演示在哪一步失效？",
+      "进入下一讲前，你会先检查什么？"
+    ]
+  },
+  "section_notes": [
+    {
+      "section_title": "定义块",
+      "summary_bullets": [
+        "符号在本节内保持一致。",
+        "两条引理仅陈述，证明留到后续。"
+      ],
+      "concepts": ["状态", "转移"],
+      "_chunk_start": 0,
+      "_chunk_end": 900
+    }
+  ]
+}

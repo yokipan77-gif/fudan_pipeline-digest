@@ -2,8 +2,8 @@
 
 Usage:
     python -m src.pipeline <livingroom_url>
-    python -m src.pipeline --course-id 34945 --sub-id 563930
-    python -m src.pipeline --course-id 34945 --all     # batch every recording
+    python -m src.pipeline --course-id COURSE_ID --sub-id SUB_ID
+    python -m src.pipeline --course-id COURSE_ID --all
 
 Flags:
     --skip-cookies    don't refresh cookies (use cached cookie-header.txt)

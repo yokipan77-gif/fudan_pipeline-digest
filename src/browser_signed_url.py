@@ -246,7 +246,7 @@ def fetch_signed_video_url(
 if __name__ == "__main__":
     import sys
 
-    course_id = sys.argv[1] if len(sys.argv) > 1 else "34945"
-    sub_id = sys.argv[2] if len(sys.argv) > 2 else "563930"
+    course_id = sys.argv[1] if len(sys.argv) > 1 else "COURSE_ID"
+    sub_id = sys.argv[2] if len(sys.argv) > 2 else "SUB_ID"
     res = fetch_signed_video_url(None, course_id, sub_id)
     print(json.dumps(res, indent=2, ensure_ascii=False))
