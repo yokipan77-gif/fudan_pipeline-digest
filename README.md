@@ -1,14 +1,8 @@
-<p align="center">
-  <img src="docs/assets/banner.svg" alt="fudan_pipeline-digest Banner" width="100%" />
-</p>
+# fudan_pipeline-digest
 
-<p align="center">
-  <code>v1.0.0</code> · <code>Python 3.12+</code> · <code>faster-whisper GPU</code> · <code>DeepSeek</code> · <a href="LICENSE">MIT License</a> · 开发者：复旦yoki
-</p>
+`v1.0.0` · `Python 3.12+` · `faster-whisper GPU` · `DeepSeek` · [MIT License](LICENSE)
 
-<p align="center">
-  <strong>如果你也在 icourse 上反复拖进度条找「老师刚才那句到底说了啥」——这个项目就是替你干这件事的。</strong>
-</p>
+> 如果你也在 icourse 上反复拖进度条找「老师刚才那句到底说了啥」——这个项目就是替你干这件事的。
 
 ---
 
