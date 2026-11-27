@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="fudan_pipeline-digest Banner">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f17"/>
+      <stop offset="55%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="16%" cy="22%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="86%" cy="80%" r="48%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#e2e8f0" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="300" rx="18" fill="url(#grid)"/>
+  <rect width="1200" height="300" rx="18" fill="url(#glow1)"/>
+  <rect width="1200" height="300" rx="18" fill="url(#glow2)"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="298.5" rx="17.5" fill="none" stroke="#263349" stroke-width="1.5"/>
+
+  <rect x="64" y="42" width="68" height="3.5" rx="2" fill="#38bdf8"/>
+
+  <g transform="translate(944, 32)">
+    <rect width="192" height="28" rx="14" fill="#131c2e" stroke="#38bdf8" stroke-opacity="0.45"/>
+    <circle cx="16" cy="14" r="4" fill="#38bdf8"/>
+    <text x="29" y="18.5" fill="#e2e8f0" font-family="'Segoe UI', 'Microsoft YaHei UI', sans-serif" font-size="12" font-weight="600">v1.0.0 · 开发者：复旦yoki</text>
+  </g>
+
+  <text x="64" y="128" fill="#f8fafc" font-family="'Cascadia Code', 'JetBrains Mono', Consolas, monospace" font-size="52" font-weight="800" letter-spacing="1"><tspan fill="#38bdf8">▸ </tspan>fudan_pipeline-<tspan fill="#38bdf8">digest</tspan></text>
+
+  <text x="68" y="174" fill="#e2e8f0" font-family="'PingFang SC', 'Microsoft YaHei UI', 'Segoe UI', sans-serif" font-size="21" font-weight="600" letter-spacing="0.5">复旦 icourse 课堂录像本地复习流水线 · GPU 转写 → LLM 整理 → HTML 复习页</text>
+
+  <text x="68" y="206" fill="#94a3b8" font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif" font-size="14.5">Local-First Lecture Digest Pipeline · faster-whisper GPU · DeepSeek Map-Reduce · Offline HTML Report</text>
+
+  <g transform="translate(64, 234)" font-family="'Cascadia Code', Consolas, monospace" font-size="12.5" font-weight="600">
+    <rect x="0" y="0" width="176" height="30" rx="8" fill="#131c2e" stroke="#38bdf8" stroke-opacity="0.45"/>
+    <text x="88" y="19.5" text-anchor="middle" fill="#7dd3fc">Whisper large-v3</text>
+
+    <rect x="190" y="0" width="166" height="30" rx="8" fill="#131c2e" stroke="#818cf8" stroke-opacity="0.45"/>
+    <text x="273" y="19.5" text-anchor="middle" fill="#c7d2fe">DeepSeek Digest</text>
+
+    <rect x="370" y="0" width="164" height="30" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="452" y="19.5" text-anchor="middle" fill="#e2e8f0">Resumable Runs</text>
+
+    <rect x="548" y="0" width="158" height="30" rx="8" fill="#131c2e" stroke="#34d399" stroke-opacity="0.45"/>
+    <text x="627" y="19.5" text-anchor="middle" fill="#6ee7b7">Offline HTML</text>
+  </g>
+</svg>
